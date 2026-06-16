@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Spring Auth</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .navbar h1 { font-size: 22px; }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .navbar a:hover { background: rgba(255,255,255,0.35); }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        .welcome-card {
+            background: white;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .welcome-card .emoji { font-size: 64px; margin-bottom: 20px; }
+
+        .welcome-card h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .welcome-card p {
+            color: #888;
+            font-size: 16px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 16px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <h1>🔐 Spring Auth App</h1>
+    <a th:href="@{/logout}">Logout</a>
+</nav>
+
+<div class="container">
+    <div class="welcome-card">
+        <div class="emoji">🎉</div>
+        <h2>Welcome, <span th:text="${username}" style="color: #667eea;">User</span>!</h2>
+        <p>You have successfully logged in to your account.</p>
+        <span class="badge">✅ Authenticated</span>
+    </div>
+</div>
+
+</body>
+</html>
